@@ -1,15 +1,15 @@
 import React from "react";
-
-function Table({ plates = [] }) {
+// plates = []
+function Table({ boughtSushi, money }) {
   // renders an empty plate for every element in the array
-  const emptyPlates = plates.map((_, index) => (
-    <div className="empty-plate" style={{ top: -7 * index }} />
+  const emptyPlates = boughtSushi.map((_, index) => (
+    <div key={boughtSushi.id } className="empty-plate" style={{ top: -7 * index }} />
   ));
 
   return (
     <>
       <h1 className="remaining">
-        You have: ${/* Give me how much money I have left */} remaining!
+        {money > 0 ? `You have: ${money} remaining!` : "You're out of money!"}
       </h1>
       <div className="table">
         <div className="stack">{emptyPlates}</div>
